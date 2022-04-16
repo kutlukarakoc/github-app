@@ -104,21 +104,37 @@ body{
         -o-transition: all .4s linear;
         -moz-transition: all .4s linear;
     }
+    
+     .search-container .search-btn{
+        padding: 5px 10px;
+        outline: none;
+        border: 1px solid #000;
+        border-radius: 10px;
+        background-color: #fff;
+        transition: all 365ms linear;
+        -webkit-transition: all 365ms linear;
+        -o-transition: all 365ms linear;
+        -moz-transition: all 365ms linear;
+    }
 
-    .search-container .search.search-darkmode{
+    .search-container .search.search-darkmode,
+    .search-container .search-btn.search-btn-darkmode{
         background-color: #000;
         border: 1px solid #fff;
+        color: #fff;
     }
 
     .search-container .search.search-darkmode::placeholder{
         color: #fff;
     }
 
-    .search-container .search .not-founded{
+    .search-container .search.not-founded
+    .search-container .search-btn.not-founded{
         border: 1px solid #ff0000;
     }
 
-    .search-container .search .founded{
+    .search-container .search.founded,
+    .search-container .search-btn.founded{
         border: 1px solid #008000;
     }
 
@@ -133,6 +149,7 @@ body{
         display: flex;
         justify-content: center;
         padding: 10px;
+        position: relative;
     }
 
     .card-container.card-darkmode{
@@ -144,8 +161,10 @@ body{
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        gap: 5px;
+        gap: 10px;
         height: max-content;
+        width: 100%;
+        font-size: .9rem;
     }
 
     .card-container .card-header .avatar{
@@ -163,28 +182,38 @@ body{
         border: 1px solid #fff;
     }
 
-    .card-container .card-header .user-container{
+    .card-container .card-header .social-medias{
         display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
-        margin-bottom: 2px;
+        flex-direction: column;
+        gap: 2px;
     }
 
     .card-container .card-header .user,
-    .card-container .card-header .blog{
+    .card-container .card-header .twitter,
+    .card-container .card-header .followers,
+    .card-container .card-header .following,
+    .card-container .card-header .repositories{
         display: inline-block;
         text-decoration: none;
-        font-size: .9rem;
         color: #000;
     }
-
-    .card-container .card-header .user.user-darkmode,
-    .card-container .card-header .blog.user-darkmode{
-        color: #fff;
+    
+    .card-container .card-header .followers-container .followers,
+    .card-container .card-header .followers-container .following{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        font-size: .9rem;
+        line-height: 0px;
+        gap: 5px;
+        cursor: pointer;
+        border-bottom: 1px solid black;
+        height: 19px;
     }
 
-    .card-container .card-header .title{
-        font-size: 1rem;
+    .card-container .card-header .followers-container .followers.followers-darkmode,
+    .card-container .card-header .followers-container .following.following-darkmode,
+    .card-container .card-header .user.user-darkmode{
+        color: #fff;
     }
 }
