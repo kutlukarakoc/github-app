@@ -2,7 +2,6 @@ const toggle = document.querySelector('.checkbox');
 const search_input = document.querySelector('.search');
 const search_btn = document.querySelector('.search-btn');
 const card_container = document.querySelector('.card-container');
-const avatar = document.querySelector('.avatar');
 const anchors = document.querySelectorAll('a');
 
 toggle.addEventListener('change', ()=> {
