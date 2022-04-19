@@ -1,8 +1,8 @@
 const toggle = document.querySelector('.checkbox');
-const search_input = document.querySelector('.search');
 const search_btn = document.querySelector('.search-btn');
 const card_container = document.querySelector('.card-container');
 const anchors = document.querySelectorAll('a');
+let avatar;
 
 toggle.addEventListener('change', ()=> {
     document.body.classList.toggle('dark-mode');
