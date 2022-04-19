@@ -146,6 +146,7 @@ body{
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: transform .5s linear;
         position: relative;
     }
 
@@ -153,7 +154,7 @@ body{
         border: 1px solid #fff !important;
     }
     
-    .card-toggle{
+    .toggle-rotate{
         transform: rotateY(360deg); 
         -webkit-transform: rotateY(360deg); 
         -moz-transform: rotateY(360deg); 
@@ -172,7 +173,9 @@ body{
         opacity: 1;
     }
 
-    .card-container .card-header .avatar{
+    .card-container .card-header .avatar,
+    .user-follower .avatar,
+    .user-following .avatar{
         width: 100px;
         height: 100px;
         border: 1px solid #000;
@@ -187,15 +190,10 @@ body{
         border: 1px solid #fff;
     }
 
-    .card-container .card-header .social-medias{
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-    }
-
     .card-container .card-header .user,
-    .card-container .card-header .twitter,
-    .card-container .card-header .repositories{
+    .card-container .card-header .repositories,
+    .card-container .user-followers .user-follower .follower-nickname,
+    .card-container .user-followings .user-following .following-nickname{
         display: inline-block;
         text-decoration: none;
         color: #000;
@@ -234,13 +232,6 @@ body{
         text-align: center;
         display: none;
         opacity: 0;
-    }
-
-    .followers-following-toggle{
-        transform: rotateY(360deg); 
-        -webkit-transform: rotateY(360deg); 
-        -moz-transform: rotateY(360deg); 
-        -o-transform: rotateY(360deg); 
     }
 
     .card-container .user-followers .backbtn,
