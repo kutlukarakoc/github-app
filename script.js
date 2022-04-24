@@ -71,7 +71,9 @@ function get() {
                     profile_picture.classList.add('avatar');
                     profile_picture.setAttribute('loading', 'lazy');
                     searched_user.prepend(profile_picture);
-                }
+                };
+            
+                avatar = document.querySelectorAll('.avatar');
 
                 // If data contains name-surname information...
                 if (data.name !== null) {
@@ -125,7 +127,7 @@ function get() {
                         <i class="fa-brands fa-github"></i>
                         <a href="${data.html_url}" class="user" target="_blank">${data.html_url.split('com/')[1]}</a>
                     `;
-
+                github_user = document.querySelector('.user');
                 return data;
             })
         
@@ -162,6 +164,7 @@ function get() {
                                         <img src="${item.avatar_url}" class="avatar avatar-${index}" loading="lazy" alt="">
                                     `;
                                     user_follower.insertAdjacentHTML('afterbegin', follower_picture);
+                                    avatar = document.querySelectorAll('.avatar');
                                 };
 
 
@@ -171,6 +174,7 @@ function get() {
                                         <a href="${item.html_url}" class="follower-nickname follower-nickname-${index}" target="_blank">${item.login}</a>
                                     `;
                                     user_follower.insertAdjacentHTML('beforeend', follower_nickname);
+                                    anchors = document.querySelectorAll('a');
                                 };
 
                             });
@@ -246,6 +250,8 @@ function get() {
 
                                 if (!document.querySelectorAll(`.following${index}`).length) {
                                     user_followings.append(user_following);
+                                    avatar = document.querySelectorAll('.avatar');
+                                    anchors = document.querySelectorAll('a');
                                 };
                             });
 
