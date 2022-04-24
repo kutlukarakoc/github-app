@@ -1,14 +1,15 @@
 const toggle = document.querySelector('.checkbox');
 const search_btn = document.querySelector('.search-btn');
 const card_container = document.querySelector('.card-container');
-const anchors = document.querySelectorAll('a');
+let anchors = document.querySelectorAll('a');
+let github_user;
 let avatar;
 
 toggle.addEventListener('change', ()=> {
     document.body.classList.toggle('dark-mode');
     
-    if(search_input){
-        search_input.classList.toggle('search-darkmode');
+    if(search){
+        search.classList.toggle('search-darkmode');
     };
     
     if(search_btn){
@@ -20,7 +21,13 @@ toggle.addEventListener('change', ()=> {
     };
     
     if(avatar){
-        avatar.classList.toggle('avatar-darkmode');
+        if(avatar.length < 2){
+            avatar[0].classList.toggle('avatar-darkmode');
+        }else{
+            avatar.forEach((element) => {
+                element.classList.toggle('avatar-darkmode');
+            });
+        }
     };
     
     if(anchors){
@@ -29,13 +36,17 @@ toggle.addEventListener('change', ()=> {
         });
     };
     
-    if(followers || following){//can not find el probably, need to check
+    if(followers || following){
         followers.classList.toggle('followers-darkmode');
         following.classList.toggle('following-darkmode');
     };
     
-    if(github){//can not find el probably, need to check
-        github.classList.toggle('user-darkmode');
+    if(repositories){
+        repositories.classList.toggle('repositories-darkmode');
+    };
+    
+    if(github_user){
+        github_user.classList.toggle('github-darkmode');
     };
 
 });
