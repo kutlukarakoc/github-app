@@ -20,6 +20,10 @@ body{
     background-position: left bottom;
 }
 
+.card-container::-webkit-scrollbar {
+    display: none;
+}
+
 .dark-mode{
     background-color: #000 !important;
     color: #fff;
@@ -173,9 +177,7 @@ body{
         opacity: 1;
     }
 
-    .card-container .card-header .avatar,
-    .user-follower .avatar,
-    .user-following .avatar{
+    .avatar{
         width: 100px;
         height: 100px;
         border: 1px solid #000;
@@ -197,6 +199,11 @@ body{
         display: inline-block;
         text-decoration: none;
         color: #000;
+    }
+    
+    .card-container .user-followers .user-follower .follower-nickname,
+    .card-container .user-followings .user-following .following-nickname{
+        margin: 10px;
     }
     
     .card-container .searched-user .followers-container{
@@ -224,14 +231,27 @@ body{
     .followers-darkmode,
     .following-darkmode,
     .user-darkmode{
-        color: #fff;
+        color: #fff !important;
     }
     
     .card-container .user-followers,
     .card-container .user-followings{
-        text-align: center;
+        opacity: 1;
         display: none;
-        opacity: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        height: 100%;
+    }
+    
+    .card-container .user-followers .user-follower,
+    .card-container .user-followings .user-following{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 15px 0 15px 0;
     }
 
     .card-container .user-followers .backbtn,
