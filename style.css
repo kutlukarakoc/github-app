@@ -97,7 +97,7 @@ body{
     color: #000;
 }
 
-@media only screen and (max-width: 768px) {
+
     .search-container .search{
         padding: 5px 10px;
         outline: none;
@@ -275,5 +275,3 @@ body{
         border: 1px solid #fff;
         color: #fff;
     }
-
-}
