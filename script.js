@@ -12,6 +12,8 @@ const back_from_followers = document.querySelector('.back-from-followers');
 const back_from_followings = document.querySelector('.back-from-followings');
 let followers;
 let following;
+let follower_nickname;
+let following_nickname;
 let followers_count;
 let following_count;
 let followers_avatar;
@@ -128,6 +130,9 @@ function get() {
                         <a href="${data.html_url}" class="user" target="_blank">${data.html_url.split('com/')[1]}</a>
                     `;
                 github_user = document.querySelector('.user');
+            
+                toggleDoubleCheck();
+            
                 return data;
             })
         
@@ -175,6 +180,7 @@ function get() {
                                     `;
                                     user_follower.insertAdjacentHTML('beforeend', follower_nickname);
                                     anchors = document.querySelectorAll('a');
+                                    follower_nickname = document.querySelectorAll('.follower-nickname');
                                 };
 
                             });
@@ -191,6 +197,9 @@ function get() {
 
                                 card_container.classList.remove('toggle-rotate');
                             });
+                        
+                        toggleDoubleCheck();
+                        
                         })
 
                         .catch(() => {
@@ -252,6 +261,7 @@ function get() {
                                     user_followings.append(user_following);
                                     avatar = document.querySelectorAll('.avatar');
                                     anchors = document.querySelectorAll('a');
+                                    following_nickname = document.querySelectorAll('.following-nickname');
                                 };
                             });
 
@@ -267,6 +277,9 @@ function get() {
 
                                 card_container.classList.remove('toggle-rotate');
                             })
+                        
+                        toggleDoubleCheck();
+                        
                         })
 
                         .catch(() => {
