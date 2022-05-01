@@ -271,7 +271,7 @@ body{
     }
 
     .backbtn-darkmode{
-        background-color: #000;
-        border: 1px solid #fff;
+        background-color: #000 !important;
+        border: 1px solid #fff !important;
         color: #fff;
     }
