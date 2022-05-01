@@ -1,6 +1,7 @@
 const toggle = document.querySelector('.checkbox');
 const search_btn = document.querySelector('.search-btn');
 const card_container = document.querySelector('.card-container');
+const back_btn = document.querySelectorAll('.backbtn');
 let anchors = document.querySelectorAll('a');
 let github_user;
 let avatar;
