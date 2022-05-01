@@ -48,6 +48,12 @@ toggle.addEventListener('change', ()=> {
     if(github_user){
         github_user.classList.toggle('github-darkmode');
     };
+    
+    if(back_btn){
+        back_btn.forEach((button) => {
+            button.classList.toggle('backbtn-darkmode');
+        });
+    };
 });
 
 function toggleDoubleCheck() { // to fix toggle bugs
