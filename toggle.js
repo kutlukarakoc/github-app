@@ -6,50 +6,51 @@ let anchors = document.querySelectorAll('a');
 let github_user;
 let avatar;
 
-toggle.addEventListener('change', ()=> {
+
+toggle.addEventListener('change', () => {
     document.body.classList.toggle('dark-mode');
-    
-    if(search){
+
+    if (search) {
         search.classList.toggle('search-darkmode');
     };
-    
-    if(search_btn){
+
+    if (search_btn) {
         search_btn.classList.toggle('search-btn-darkmode');
     };
-    
-    if(card_container){
+
+    if (card_container) {
         card_container.classList.toggle('card-darkmode');
     };
-    
-    if(avatar){
-        if(avatar.length < 2){
+
+    if (avatar) {
+        if (avatar.length == 1) {
             avatar[0].classList.toggle('avatar-darkmode');
-        }else{
+        } else {
             avatar.forEach((element) => {
                 element.classList.toggle('avatar-darkmode');
             });
         }
     };
-    
-    if(anchors){
-        anchors.forEach((element)=> {
+
+    if (anchors) {
+        anchors.forEach((element) => {
             element.classList.toggle('user-darkmode');
         });
     };
-    
-    if(followers || following){
+
+    if (followers || following) {
         followers.classList.toggle('followers-darkmode');
         following.classList.toggle('following-darkmode');
     };
-    
-    if(repositories){
+
+    if (repositories) {
         repositories.classList.toggle('repositories-darkmode');
     };
-    
-    if(github_user){
+
+    if (github_user) {
         github_user.classList.toggle('github-darkmode');
     };
-    
+
     if(back_btn){
         back_btn.forEach((button) => {
             button.classList.toggle('backbtn-darkmode');
@@ -57,7 +58,7 @@ toggle.addEventListener('change', ()=> {
     };
 });
 
-function toggleDoubleCheck() { // to fix toggle bugs
+function toggleDoubleCheck() {
     if (document.body.classList[0] == 'dark-mode' && checkbox.checked) {
         if (avatar) {
             if (avatar.length == 1) {
@@ -108,7 +109,7 @@ function toggleDoubleCheck() { // to fix toggle bugs
         };
 
     }else{
-        if(user_followers.style.display != 'block' && user_followings.style.display != 'block'){ // if searched user displays
+        if(user_followers.style.display != 'block' && user_followings.style.display != 'block'){
             if(document.querySelectorAll('.user').length){ // github_user
                 if(github_user.classList.contains('github-darkmode')){
                     github_user.classList.remove('github-darkmode');
