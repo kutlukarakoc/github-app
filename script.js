@@ -10,6 +10,7 @@ const user_followers = document.querySelector('.user-followers');
 const user_followings = document.querySelector('.user-followings')
 const back_from_followers = document.querySelector('.back-from-followers');
 const back_from_followings = document.querySelector('.back-from-followings');
+const followings = document.querySelectorAll('.user-following');
 let followers;
 let following;
 let follower_nickname;
@@ -18,7 +19,6 @@ let followers_count;
 let following_count;
 let followers_avatar;
 let followings_avatar;
-let error_message;
 
 let search_value;
 search.addEventListener('input', (e) => {
@@ -26,13 +26,27 @@ search.addEventListener('input', (e) => {
 });
 
 search_btn.addEventListener('click', () => {
-    error_message = document.querySelector('.error-message');
-    if (error_message) {
-        error_message.remove();
-        get();
-    } else {
-        get();
-    }
+    
+    // if followings already exist, remove on every search
+    if (followings.length == 1) {
+        followings[0].remove();
+    };
+    if (followings.length > 1) {
+        followings.forEach((element) => {
+            element.remove();
+        });
+    };
+
+    // when user searchs in followers page or followings page, card will be rotated after search
+    if (user_followers.style.display == 'block' || user_followings.style.display == 'block') {
+        searched_user.style.display = 'flex';
+        user_followings.style.display = 'none';
+        user_followers.style.display = 'none';
+
+        card_container.classList.remove('toggle-rotate');
+    };
+
+    get();
 });
 
 
@@ -66,15 +80,17 @@ function get() {
 
             .then((data) => {
                 // If avatar element doesn't exist, create one
-                let avatar = document.querySelector('.avatar');
-                if (!avatar) {
+                avatar = document.querySelectorAll('.avatar');
+                if (!avatar.length) {
                     let profile_picture = document.createElement('img');
                     profile_picture.src = data.avatar_url;
                     profile_picture.classList.add('avatar');
                     profile_picture.setAttribute('loading', 'lazy');
                     searched_user.prepend(profile_picture);
-                };
-            
+                }else { // If already exists, just change src
+                    avatar[0].src = data.avatar_url;
+                }
+                // redefining avatar after creating element
                 avatar = document.querySelectorAll('.avatar');
 
                 // If data contains name-surname information...
@@ -315,13 +331,26 @@ function get() {
                 }
 
                 // Display error message
-
                 const error_message =
-                 `
-                    <div class="error-message" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap;">User not found.</div>
+                    `
+                    <div class="error-message" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100%;text-align:center;font-size:0.9rem;">User not found<br>or<br>something wrong happened.<br><br>Page will be reloaded in 3 seconds...</div>
                 `;
                 card_container.innerHTML = error_message;
+            
+                let counter = 0;
+                let check_err = setInterval(() => {
+                    counter++;
+                    if(document.querySelectorAll('.error-message').length){
+                        clearInterval(check_err);
+                        setTimeout(() => {
+                            window.location.reload(); // to avoid search bugs
+                        },3000);
+                    };
 
+                    if(counter > 20){
+                        clearInterval(check_err);
+                    };
+                }, 500);
             });
         };   
 };
