@@ -7,7 +7,7 @@ const followers_container = document.querySelector('.followers-container');
 const repositories = document.querySelector('.repositories');
 const github_container = document.querySelector('.github-container');
 const user_followers = document.querySelector('.user-followers');
-const user_followings = document.querySelector('.user-followings')
+const user_followings = document.querySelector('.user-followings');
 const back_from_followers = document.querySelector('.back-from-followers');
 const back_from_followings = document.querySelector('.back-from-followings');
 const followings = document.querySelectorAll('.user-following');
@@ -26,7 +26,7 @@ search.addEventListener('input', (e) => {
 });
 
 search_btn.addEventListener('click', () => {
-    
+
     // if followings already exist, remove on every search
     if (followings.length == 1) {
         followings[0].remove();
@@ -48,7 +48,6 @@ search_btn.addEventListener('click', () => {
 
     get();
 });
-
 
 function get() {
 
@@ -79,17 +78,19 @@ function get() {
             })
 
             .then((data) => {
+
                 // If avatar element doesn't exist, create one
                 avatar = document.querySelectorAll('.avatar');
                 if (!avatar.length) {
                     let profile_picture = document.createElement('img');
                     profile_picture.src = data.avatar_url;
-                    profile_picture.classList.add('avatar');
+                    profile_picture.classList = 'avatar user-avatar';
                     profile_picture.setAttribute('loading', 'lazy');
                     searched_user.prepend(profile_picture);
-                }else { // If already exists, just change src
+                } else { // If already exists, just change src
                     avatar[0].src = data.avatar_url;
                 }
+
                 // redefining avatar after creating element
                 avatar = document.querySelectorAll('.avatar');
 
@@ -145,13 +146,14 @@ function get() {
                         <i class="fa-brands fa-github"></i>
                         <a href="${data.html_url}" class="user" target="_blank">${data.html_url.split('com/')[1]}</a>
                     `;
+
                 github_user = document.querySelector('.user');
-            
+
                 toggleDoubleCheck();
-            
+
                 return data;
             })
-        
+
 
             .then((data) => {
                 // followers
@@ -190,15 +192,15 @@ function get() {
 
 
                                 if (!document.querySelectorAll(`.follower-nickname-${index}`).length) {
-                                    let follower_nickname =
+                                    let follower_nicknames =
                                         `
                                         <a href="${item.html_url}" class="follower-nickname follower-nickname-${index}" target="_blank">${item.login}</a>
                                     `;
-                                    user_follower.insertAdjacentHTML('beforeend', follower_nickname);
+                                    user_follower.insertAdjacentHTML('beforeend', follower_nicknames);
+
                                     anchors = document.querySelectorAll('a');
                                     follower_nickname = document.querySelectorAll('.follower-nickname');
                                 };
-
                             });
 
                             searched_user.style.display = 'none';
@@ -213,9 +215,8 @@ function get() {
 
                                 card_container.classList.remove('toggle-rotate');
                             });
-                        
-                        toggleDoubleCheck();
-                        
+
+                            toggleDoubleCheck();
                         })
 
                         .catch(() => {
@@ -232,16 +233,15 @@ function get() {
                 });
 
                 return data;
-
             })
 
             .then((data) => {
                 //followings
 
-                // manipulating following refferal to get all followings informations
+                // manipulating following refferal to get all following informations
                 let following_ref = data.following_url.replace('{/other_user}', '');
 
-                // New request for followings informations
+                // New request for following informations
                 following.addEventListener('click', () => {
                     async function getFollowings(url) {
                         const response = await fetch(url);
@@ -259,19 +259,19 @@ function get() {
                                 let user_following = document.createElement('div');
                                 user_following.classList.add('user-following');
                                 user_following.classList.add(`following${index}`);
-    
+
                                 let following_avatar = document.createElement('img');
                                 following_avatar.classList.add('avatar');
                                 following_avatar.src = item.avatar_url;
-                                following_avatar.setAttribute('loading','lazy');
+                                following_avatar.setAttribute('loading', 'lazy');
                                 user_following.prepend(following_avatar);
 
                                 let following_nickname = document.createElement('a');
-                                following_nickname.classList.add('follower-nickname');
+                                following_nickname.classList.add('following-nickname');
                                 following_nickname.href = item.html_url;
                                 following_nickname.target = '_blank';
                                 following_nickname.textContent = item.login;
-                                user_following.append(following_nickname);                               
+                                user_following.append(following_nickname);
 
                                 if (!document.querySelectorAll(`.following${index}`).length) {
                                     user_followings.append(user_following);
@@ -292,10 +292,9 @@ function get() {
                                 user_followings.style.display = 'none';
 
                                 card_container.classList.remove('toggle-rotate');
-                            })
-                        
-                        toggleDoubleCheck();
-                        
+                            });
+
+                            toggleDoubleCheck();
                         })
 
                         .catch(() => {
@@ -336,21 +335,20 @@ function get() {
                     <div class="error-message" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100%;text-align:center;font-size:0.9rem;">User not found<br>or<br>something wrong happened.<br><br>Page will be reloaded in 3 seconds...</div>
                 `;
                 card_container.innerHTML = error_message;
-            
+
                 let counter = 0;
                 let check_err = setInterval(() => {
                     counter++;
-                    if(document.querySelectorAll('.error-message').length){
+                    if (document.querySelectorAll('.error-message').length) {
                         clearInterval(check_err);
                         setTimeout(() => {
                             window.location.reload(); // to avoid search bugs
-                        },3000);
+                        }, 3000);
                     };
-
-                    if(counter > 20){
+                    if (counter > 20) {
                         clearInterval(check_err);
                     };
                 }, 500);
             });
-        };   
+    };
 };
