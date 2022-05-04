@@ -97,181 +97,186 @@ body{
     color: #000;
 }
 
+.search-container .search{
+    padding: 5px 10px;
+    outline: none;
+    border: 1px solid #000;
+    border-radius: 10px;
+    transition: all .4s linear;
+    -webkit-transition: all .4s linear;
+    -o-transition: all .4s linear;
+    -moz-transition: all .4s linear;
+}
 
-    .search-container .search{
-        padding: 5px 10px;
-        outline: none;
-        border: 1px solid #000;
-        border-radius: 10px;
-        transition: all .4s linear;
-        -webkit-transition: all .4s linear;
-        -o-transition: all .4s linear;
-        -moz-transition: all .4s linear;
-    }
-    
-     .search-container .search-btn{
-        padding: 5px 10px;
-        outline: none;
-        border: 1px solid #000;
-        border-radius: 10px;
-        background-color: #fff;
-        transition: all .4s linear;
-        -webkit-transition: all .4s linear;
-        -o-transition: all .4s linear;
-        -moz-transition: all .4s linear;
-    }
+.search-container .search-btn{
+    padding: 5px 10px;
+    outline: none;
+    border: 1px solid #000;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: all .4s linear;
+    -webkit-transition: all .4s linear;
+    -o-transition: all .4s linear;
+    -moz-transition: all .4s linear;
+}
 
-    .search-darkmode,
-    .search-btn-darkmode{
-        background-color: #000 !important;
-        border: 1px solid #fff !important;
-        color: #fff;
-    }
+.search-darkmode,
+.search-btn-darkmode{
+    background-color: #000 !important;
+    border: 1px solid #fff !important;
+    color: #fff;
+}
 
-    .search-darkmode::placeholder{
-        color: #fff;
-    }
+.search-darkmode::placeholder{
+    color: #fff;
+}
 
-    .not-founded{
-        border: 1px solid #ff0000 !important;
-    }
+.not-founded{
+    border: 1px solid #ff0000 !important;
+}
 
-    .founded{
-        border: 1px solid #008000 !important;
-    }
+.founded{
+    border: 1px solid #008000 !important;
+}
 
+.card-container{
+    max-width: 300px;
+    max-height: 400px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform .5s linear;
+    position: relative;
+}
 
-    .card-container{
-        max-width: 300px;
-        max-height: 400px;
-        width: 100%;
-        height: 100%;
-        border-radius: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: transform .5s linear;
-        position: relative;
-    }
+.card-darkmode{
+    border: 1px solid #fff !important;
+}
 
-    .card-darkmode{
-        border: 1px solid #fff !important;
-    }
-    
-    .toggle-rotate{
-        transform: rotateY(360deg); 
-        -webkit-transform: rotateY(360deg); 
-        -moz-transform: rotateY(360deg); 
-        -o-transform: rotateY(360deg); 
-    }
+.toggle-rotate{
+    transform: rotateY(360deg); 
+    -webkit-transform: rotateY(360deg); 
+    -moz-transform: rotateY(360deg); 
+    -o-transform: rotateY(360deg); 
+}
 
-    .card-container .searched-user{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 10px;
-        height: max-content;
-        width: 100%;
-        font-size: .9rem;
-        opacity: 1;
-    }
+.card-container .searched-user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    height: max-content;
+    width: 100%;
+    font-size: .9rem;
+    opacity: 1;
+}
 
-    .avatar{
-        width: 100px;
-        height: 100px;
-        border: 1px solid #000;
-        border-radius: 50%;
-        transition: border .4s linear;
-        -webkit-transition: border .4s linear;
-        -o-transition: border .4s linear;
-        -moz-transition: border .4s linear;
-    }
+.avatar{
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    transition: border .4s linear;
+    -webkit-transition: border .4s linear;
+    -o-transition: border .4s linear;
+    -moz-transition: border .4s linear;
+}
 
-    .avatar-darkmode{
-        border: 1px solid #fff;
-    }
+.avatar-darkmode{
+    border: 1px solid #fff;
+}
 
-    .card-container .card-header .user,
-    .card-container .card-header .repositories,
-    .card-container .user-followers .user-follower .follower-nickname,
-    .card-container .user-followings .user-following .following-nickname{
-        display: inline-block;
-        text-decoration: none;
-        color: #000;
-    }
-    
-    .card-container .user-followers .user-follower .follower-nickname,
-    .card-container .user-followings .user-following .following-nickname{
-        margin: 10px;
-    }
-    
-    .card-container .searched-user .followers-container{
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
-    }
-    
-    .card-container .card-header .followers-container .followers,
-    .card-container .card-header .followers-container .following{
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        font-size: .9rem;
-        line-height: 0px;
-        gap: 5px;
-        cursor: pointer;
-        border-bottom: 1px solid black;
-        height: 19px;
-    }
+.card-container .searched-user .user,
+.card-container .searched-user .repositories,
+.card-container .user-followers .user-follower .follower-nickname,
+.card-container .user-followings .user-following .following-nickname{
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+}
 
-    .followers-darkmode,
-    .following-darkmode,
-    .user-darkmode{
-        color: #fff !important;
-    }
-    
-    .card-container .user-followers,
-    .card-container .user-followings{
-        opacity: 1;
-        display: none;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 25px;
-        height: 100%;
-    }
-    
-    .card-container .user-followers .user-follower,
-    .card-container .user-followings .user-following{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 15px 0 15px 0;
-    }
+.card-container .user-followers .user-follower .follower-nickname,
+.card-container .user-followings .user-following .following-nickname{
+    margin: 10px;
+}
 
-    .card-container .user-followers .backbtn,
-    .card-container .user-followings .backbtn{
-        position: absolute;
-        right: 2px;
-        bottom: 2px;
-        padding: 5px 10px;
-        outline: none;
-        border: 1px solid #000;
-        border-radius: 10px;
-        background-color: #fff;
-        transition: all .4s linear;
-        -webkit-transition: all .4s linear;
-        -o-transition: all .4s linear;
-        -moz-transition: all .4s linear;
-    }
+.card-container .searched-user .followers-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
 
-    .backbtn-darkmode{
-        background-color: #000 !important;
-        border: 1px solid #fff !important;
-        color: #fff;
-    }
+.card-container .searched-user .followers-container .followers,
+.card-container .searched-user .followers-container .following{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: .9rem;
+    line-height: 0px;
+    gap: 5px;
+    cursor: pointer;
+    height: 19px;
+}
+
+.followers-darkmode,
+.following.following-darkmode,
+.user-darkmode,
+.repositories-darkmode,
+.github-darkmode{
+    color: #fff !important;
+}
+
+.card-container .user-followers,
+.card-container .user-followings{
+    opacity: 1;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    position: relative;
+    height: 97%;
+    width: 90%;
+    overflow: auto;
+}
+
+.card-container .user-followers .user-follower,
+.card-container .user-followings .user-following{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0 15px 0;
+}
+
+.button-container{
+    position: sticky;
+    top: 320px;
+}
+
+.button-container .backbtn{
+    position: absolute;
+    padding: 5px 10px;
+    outline: none;
+    border: 1px solid #000;
+    border-radius: 10px;
+    background-color: #fff;
+    transition: all .4s linear;
+    -webkit-transition: all .4s linear;
+    -o-transition: all .4s linear;
+    -moz-transition: all .4s linear;
+}
+
+.backbtn-darkmode{
+    border: 1px solid #fff !important;
+    background-color: #000 !important;
+    color: #fff;
+}
